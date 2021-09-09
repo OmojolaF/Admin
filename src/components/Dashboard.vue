@@ -235,7 +235,7 @@
                           <router-link to="/logout">
                             <form method="POST" action="#" class="hover:bg-gray-100">
                               <MenuItem>
-                                <button type="submit" class="p-2">
+                                <button type="button"  class="p-2">
                                   <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     class="h-4 w-4 inline-block mx-2"
@@ -267,14 +267,14 @@
         <div class="bg-gray-100 py-4 px-2 min-h-screen">
           <ul class>
             <li>
-              <div class>
-                <input type="text" class="form-control" placeholder="Search for something">
+              <div class> 
+                <input type="text" class="form-control px-2 py-4 rounded-full text-center focus:outline-none focus:ring-current" placeholder="Search for something">
               </div>
             </li>
           </ul>
         </div>
-        <footer>
-          <div class="bg-white h-16 text-center text-sm">Copyright © Oro Lounge - 2021</div>
+        <footer class="py-8">
+          <div class="bg-white text-center text-sm text-gray-400 leading-4 my-auto">Copyright © Oro Lounge - 2021</div>
         </footer>
       </div>
     </div>

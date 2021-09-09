@@ -1,82 +1,208 @@
 <template>
-  <TransitionRoot as="template" :show="open">
-    <Dialog as="div" class="fixed z-10 inset-0 overflow-y-auto" @close="open = false">
-      <div
-        class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0"
-      > 
+  <!-- <TransitionRoot
+    appear
+    as="template"
+    :show="isOpen"
+    enter="duration-300 ease-out"
+    enter-from="opacity-0"
+    enter-to="opacity-100"
+    leave="duration-200 ease-in"
+    leave-from="opacity-100"
+    leave-to="opacity-0"
+  > -->
+    <!-- <Dialog @close="setIsOpen" class="fixed inset-0 z-10 overflow-y-auto">
+      <div class="flex items-center justify-center min-h-screen">
         <TransitionChild
-          as="template"
-          enter="ease-out duration-300"
+          enter="duration-300 ease-out"
           enter-from="opacity-0"
           enter-to="opacity-100"
-          leave="ease-in duration-200"
+          leave="duration-200 ease-in"
           leave-from="opacity-100"
           leave-to="opacity-0"
         >
-          <DialogOverlay class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"/>
+          <DialogOverlay class="fixed inset-0 bg-black opacity-30"/>
         </TransitionChild>
-
-        <!-- This element is to trick the browser into centering the modal contents. -->
-        <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
-        <TransitionChild
-          as="template"
-          enter="ease-out duration-300"
-          enter-from="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-          enter-to="opacity-100 translate-y-0 sm:scale-100"
-          leave="ease-in duration-200"
-          leave-from="opacity-100 translate-y-0 sm:scale-100"
-          leave-to="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-        >
-          <div
-            class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full"
+        <div class="relative max-w-sm mx-auto bg-white rounded">
+          <TransitionChild
+            enter="duration-300 ease-out"
+            enter-from="opacity-0 scale-95"
+            enter-to="opacity-100 scale-100"
+            leave="duration-200 ease-in"
+            leave-from="opacity-100 scale-100"
+            leave-to="opacity-0 scale-95"
           >
-            <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-              <div class="sm:flex sm:items-start">
-                <div
-                  class="mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10"
-                >
-                  <ExclamationIcon class="h-6 w-6 text-red-600" aria-hidden="true"/>
-                </div>
-                <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
-                  <DialogTitle
-                    as="h3"
-                    class="text-lg leading-6 font-medium text-gray-900"
-                  >Deactivate account</DialogTitle>
-                  <div class="mt-2">
-                    <p
-                      class="text-sm text-gray-500"
-                    >Are you sure you want to deactivate your account? All of your data will be permanently removed. This action cannot be undone.</p>
-                  </div>
-                </div>
-              </div>
+            <div class="p-6 text-center shadow-lg">
+              <DialogTitle class="p-2 font-bold text-2xl">Ready to leave?</DialogTitle>
+              <hr class="my-2">
+              <DialogDescription class="text-base my-2 py-2">
+                Are you sure you want to logout of your account?
+                <p class="text-justify my-2 text-red-400">This action cannot be undone and you will have to enter yor login details again!</p>
+              </DialogDescription>
+              <hr class="my-2">
+              <router-link to="/">
+                <button
+                  @click="handleDeactivate"
+                  class="bg-red-600 px-4 py-2 m-3 rounded text-white focus:outline-none focus:ring-current"
+                >Logout</button>
+              </router-link>
+              <router-link to="/dashboard">
+                <button
+                  @click="setIsOpen(false)"
+                  class="bg-gray-600 px-4 py-2 m-3 rounded text-white focus:outline-none focus:ring-current"
+                >Cancel</button>
+              </router-link>
             </div>
-            <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-              <button
-                type="button"
-                class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm"
-                @click="open = false"
-              >Deactivate</button>
-              <button
-                type="button"
-                class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
-                @click="open = false"
-                ref="cancelButtonRef"
-              >Cancel</button>
-            </div>
-          </div>
-        </TransitionChild>
+          </TransitionChild>
+        </div>
       </div>
     </Dialog>
   </TransitionRoot>
-
-  
 </template>
 
-<script>
+<script> -->
+<!-- import { ref } from "vue";
+import {
+  Dialog,
+  DialogOverlay,
+  DialogTitle,
+  DialogDescription,
+  TransitionRoot,
+  TransitionChild
+} from "@headlessui/vue";
+
 export default {
-    name: "logout"
+  name: "Logout",
+
+  components: {
+    TransitionRoot,
+    TransitionChild,
+    Dialog,
+    DialogOverlay,
+    DialogTitle,
+    DialogDescription
+  },
+  setup() {
+    let isOpen = ref(true);
+
+    return {
+      isOpen,
+      setIsOpen(value) {
+        isOpen.value = value;
+      },
+      handleDeactivate() {}
+    };
+  }
 };
 </script>
 
 <style>
-</style>
+</style> -->
+
+  <div class="fixed inset-0 flex items-center justify-center">
+    <button
+      type="button"
+      @click="openModal"
+      class="px-4 py-2 text-sm font-medium text-white bg-black rounded-md bg-opacity-20 hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+    >
+      Logout
+    </button>
+  </div>
+  <TransitionRoot appear :show="isOpen" as="template">
+    <Dialog as="div" @close="closeModal">
+      <div class="fixed inset-0 z-10 overflow-y-auto">
+        <div class="min-h-screen px-4 text-center">
+          <TransitionChild
+            as="template"
+            enter="duration-300 ease-out"
+            enter-from="opacity-0"
+            enter-to="opacity-100"
+            leave="duration-200 ease-in"
+            leave-from="opacity-100"
+            leave-to="opacity-0"
+          >
+            <DialogOverlay class="fixed inset-0" />
+          </TransitionChild>
+
+          <span class="inline-block h-screen align-middle" aria-hidden="true">
+            
+          </span>
+
+          <TransitionChild
+            as="template"
+            enter="duration-300 ease-out"
+            enter-from="opacity-0 scale-95"
+            enter-to="opacity-100 scale-100"
+            leave="duration-200 ease-in"
+            leave-from="opacity-100 scale-100"
+            leave-to="opacity-0 scale-95"
+          >
+            <div
+              class="inline-block w-full max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl"
+            >
+              <DialogTitle
+                as="h3"
+                class="text-lg font-medium leading-6 text-gray-900"
+              >
+                Ready to leave?
+              </DialogTitle>
+              <div class="mt-2">
+                <p class="text-sm text-gray-500">
+                 Are you sure you want to logout of your account?
+                 <p>This action cannot be undone and you will have to enter yor login details again!</p>
+                </p>
+              </div>
+
+              <div class="mt-4">
+                <router-link to="/">
+                <button
+                  @click="handleDeactivate"
+                  class="inline-flex mx-2 justify-end px-4 py-2 text-sm font-medium text-white bg-red-600 border border-transparent rounded-md hover:bg-red-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-red-500"
+                >Logout</button>
+              </router-link>
+                <button
+                  @click="closeModal"
+                  class="inline-flex mx-2 justify-end px-4 py-2 text-sm font-medium text-black bg-gray-200 border border-transparent rounded-md hover:bg-gray-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-gray-500"
+                >Cancel</button>
+              </div>
+            </div>
+          </TransitionChild>
+        </div>
+      </div>
+    </Dialog>
+  </TransitionRoot>
+</template>
+
+<script>
+import { ref } from 'vue'
+import {
+  TransitionRoot,
+  TransitionChild,
+  Dialog,
+  DialogOverlay,
+  DialogTitle,
+} from '@headlessui/vue'
+
+export default {
+  components: {
+    TransitionRoot,
+    TransitionChild,
+    Dialog,
+    DialogOverlay,
+    DialogTitle,
+  },
+
+  setup() {
+    const isOpen = ref(false)
+
+    return {
+      isOpen,
+      closeModal() {
+        isOpen.value = false
+      },
+      openModal() {
+        isOpen.value = true
+      },
+    }
+  },
+}
+</script>
