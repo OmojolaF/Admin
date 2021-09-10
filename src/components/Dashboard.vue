@@ -229,35 +229,98 @@
                       leave-to-class="transform opacity-0 scale-95"
                     >
                       <MenuItems
-                        class="origin-top-right absolute right-0 mt-3 mr-2 rounded-md w-44 shadow-lg bg-white"
+                        class="origin-top-right absolute right-0 mt-5 mr-2 rounded-md w-44 shadow-lg bg-white"
                       >
                         <div class="py-1">
-                          <router-link to="/logout">
+                          <MenuItem>
                             <form method="POST" action="#" class="hover:bg-gray-100">
-                              <MenuItem>
-                                <button type="button"  class="p-2">
-                                  <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    class="h-4 w-4 inline-block mx-2"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke="currentColor"
-                                  >
-                                    <path
-                                      stroke-linecap="round"
-                                      stroke-linejoin="round"
-                                      stroke-width="2"
-                                      d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
-                                    ></path>
-                                  </svg>
-                                  Logout
-                                </button>
-                              </MenuItem>
+                              <button
+                                type="button"
+                                @click="openModal"
+                                class="py-2 m-1 text-sm font-medium text-gray-400 rounded-md bg-opacity-20 hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+                              >
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  class="h-4 w-4 inline-block mx-2 text-gray-400"
+                                  fill="none"
+                                  viewBox="0 0 24 24"
+                                  stroke="currentColor"
+                                >
+                                  <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
+                                  ></path>
+                                </svg>
+                                Logout
+                              </button>
                             </form>
-                          </router-link>
+                          </MenuItem>
                         </div>
                       </MenuItems>
                     </transition>
+                    <TransitionRoot appear :show="isOpen" as="template">
+                      <Dialog as="div" @close="closeModal">
+                        <div class="fixed inset-0 z-10 overflow-y-auto">
+                          <div class="min-h-screen px-4 text-center">
+                            <TransitionChild
+                              as="template"
+                              enter="duration-300 ease-out"
+                              enter-from="opacity-0"
+                              enter-to="opacity-100"
+                              leave="duration-200 ease-in"
+                              leave-from="opacity-100"
+                              leave-to="opacity-0"
+                            >
+                              <DialogOverlay class="fixed inset-0"/>
+                            </TransitionChild>
+
+                            <span class="inline-block h-screen align-middle" aria-hidden="true"></span>
+
+                            <TransitionChild
+                              as="template"
+                              enter="duration-300 ease-out"
+                              enter-from="opacity-0 scale-95"
+                              enter-to="opacity-100 scale-100"
+                              leave="duration-200 ease-in"
+                              leave-from="opacity-100 scale-100"
+                              leave-to="opacity-0 scale-95"
+                            >
+                              <div
+                                class="inline-block w-full max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl"
+                              >
+                                <DialogTitle
+                                  as="h3"
+                                  class="text-lg font-medium leading-6 text-gray-900"
+                                >Ready to leave?</DialogTitle>
+                                <div class="mt-2">
+                                  <p
+                                    class="text-sm text-gray-500"
+                                  >Are you sure you want to logout of your account?</p>
+                                  <p
+                                    class="text-sm text-gray-500"
+                                  >This action cannot be undone and you will have to enter your login details again!</p>
+                                </div>
+
+                                <div class="mt-4">
+                                  <router-link to="/">
+                                    <button
+                                      @click="handleDeactivate"
+                                      class="inline-flex mx-2 justify-end px-4 py-2 text-sm font-medium text-white bg-red-600 border border-transparent rounded-md hover:bg-red-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-red-500"
+                                    >Logout</button>
+                                  </router-link>
+                                  <button
+                                    @click="closeModal"
+                                    class="inline-flex mx-2 justify-end px-4 py-2 text-sm font-medium text-black bg-gray-200 border border-transparent rounded-md hover:bg-gray-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-gray-500"
+                                  >Cancel</button>
+                                </div>
+                              </div>
+                            </TransitionChild>
+                          </div>
+                        </div>
+                      </Dialog>
+                    </TransitionRoot>
                   </a>
                 </MenuButton>
               </div>
@@ -267,14 +330,20 @@
         <div class="bg-gray-100 py-4 px-2 min-h-screen">
           <ul class>
             <li>
-              <div class> 
-                <input type="text" class="form-control px-2 py-4 rounded-full text-center focus:outline-none focus:ring-current" placeholder="Search for something">
+              <div class>
+                <input
+                  type="text"
+                  class="form-control px-2 py-4 rounded-full text-center focus:outline-none focus:ring-current"
+                  placeholder="Search for something"
+                >
               </div>
             </li>
           </ul>
         </div>
         <footer class="py-8">
-          <div class="bg-white text-center text-sm text-gray-400 leading-4 my-auto">Copyright © Oro Lounge - 2021</div>
+          <div
+            class="bg-white text-center text-sm text-gray-400 leading-4 my-auto"
+          >Copyright © Oro Lounge - 2021</div>
         </footer>
       </div>
     </div>
@@ -283,18 +352,46 @@
 
 <script>
 import contents from "./contents.vue";
-import logout from "./logout.vue";
-import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/vue";
+import {
+  Menu,
+  MenuButton,
+  MenuItem,
+  MenuItems,
+  TransitionRoot,
+  TransitionChild,
+  Dialog,
+  DialogOverlay,
+  DialogTitle
+} from "@headlessui/vue";
+import { ref } from "vue";
 
 export default {
   name: "Dashboard",
   components: {
     contents,
-    logout,
     Menu,
     MenuButton,
     MenuItem,
-    MenuItems
+    MenuItems,
+    TransitionRoot,
+    TransitionChild,
+    Dialog,
+    DialogOverlay,
+    DialogTitle
+  },
+
+  setup() {
+    const isOpen = ref(false);
+
+    return {
+      isOpen,
+      closeModal() {
+        isOpen.value = false;
+      },
+      openModal() {
+        isOpen.value = true;
+      }
+    };
   }
 };
 </script>

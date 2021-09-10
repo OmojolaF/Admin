@@ -4,7 +4,7 @@ import Dashboard from "../components/Dashboard.vue"
 import Form from "../components/Form.vue"
 import contents from "../components/contents.vue"
 import description from "../components/description.vue"
-import logout from "../components/logout.vue"
+
 
 const routes = [
   {
@@ -32,11 +32,7 @@ const routes = [
     name: "description",
     component: description, 
   },
-  {
-    path: "/logout",
-    name: "logout",
-    component: logout, 
-  },
+  
 ];
 
 const router = createRouter({
