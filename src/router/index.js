@@ -32,7 +32,6 @@ const routes = [
     name: "description",
     component: description, 
   },
-  
 ];
 
 const router = createRouter({

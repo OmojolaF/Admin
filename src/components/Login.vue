@@ -47,7 +47,7 @@
             </router-link>
             <hr class="mt-2 mb-2 border-gray-200">
             <h5 class="text-center text-xs text-purple-dark py-3">
-              <a href="#" class="hover:text-purple-shine hover:underline">Forgot Password?</a>
+              <a class="hover:text-purple-shine hover:underline">Forgot Password?</a>
             </h5>
           </div>
         </div>

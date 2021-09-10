@@ -294,6 +294,7 @@
                                   as="h3"
                                   class="text-lg font-medium leading-6 text-gray-900"
                                 >Ready to leave?</DialogTitle>
+                                <hr class="my-3">
                                 <div class="mt-2">
                                   <p
                                     class="text-sm text-gray-500"
@@ -327,18 +328,16 @@
             </Menu>
           </div>
         </div>
-        <div class="bg-gray-100 py-4 px-2 min-h-screen">
-          <ul class>
-            <li>
-              <div class>
-                <input
-                  type="text"
-                  class="form-control px-2 py-4 rounded-full text-center focus:outline-none focus:ring-current"
-                  placeholder="Search for something"
-                >
-              </div>
-            </li>
-          </ul>
+        <div class="bg-gray-100 min-h-screen">
+          <div class="max-w-sm py-4 px-8 bg-white shadow-lg rounded-lg">
+  
+  
+    <h2 class="text-gray-800 text-2xl font-semibold">Cards</h2>
+    <hr class="my-2">
+    <p class="mt-2 text-gray-600">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae dolores deserunt ea doloremque natus error, rerum quas odio quaerat nam ex commodi hic, suscipit in a veritatis pariatur minus consequuntur!</p>
+  
+  
+</div>
         </div>
         <footer class="py-8">
           <div

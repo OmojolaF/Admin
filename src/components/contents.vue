@@ -1,6 +1,94 @@
 <template>
   <div class="flex flex-col">
-    <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+    <ul class="py-3 px-1 bg-white">
+    <li class="inline-block mx-2">
+      <Listbox v-model="selectedPerson">
+        <div class="relative mt-1">
+          <ListboxButton
+            class="relative py-3 font-semibold pl-3 pr-12 text-left bg-white rounded-lg shadow-md cursor-default focus:outline-none focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-white focus-visible:ring-offset-orange-300 focus-visible:ring-offset-2 focus-visible:border-indigo-500 sm:text-sm"
+          >
+            <span class="block truncate">{{ selectedPerson.name }}</span>
+            <span class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-4 w-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M8 9l4-4 4 4m0 6l-4 4-4-4"
+                ></path>
+              </svg>
+            </span>
+          </ListboxButton>
+
+          <transition
+            leave-active-class="transition duration-100 ease-in"
+            leave-from-class="opacity-100"
+            leave-to-class="opacity-0"
+          >
+            <ListboxOptions
+              class="absolute py-1 mt-1 overflow-auto text-base bg-white rounded-md shadow-lg max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm"
+            >
+              <ListboxOption
+                v-slot="{ active, selected }"
+                v-for="person in people"
+                :key="person.name"
+                :value="person"
+                as="template"
+              >
+                <li
+                  :class="[
+                  active ? 'text-amber-900 bg-amber-100' : 'text-gray-900',
+                  'cursor-default select-none relative py-2 pl-10 pr-4 hover:bg-gray-300',
+                ]"
+                >
+                  <span
+                    :class="[
+                    selected ? 'font-medium' : 'font-normal',
+                    'block truncate',
+                  ]"
+                  >{{ person.name }}</span>
+                  <span
+                    v-if="selected"
+                    class="absolute inset-y-0 left-0 flex items-center pl-3 text-amber-600"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-4 w-4"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 13l4 4L19 7"
+                      ></path>
+                    </svg>
+                  </span>
+                </li>
+              </ListboxOption>
+            </ListboxOptions>
+          </transition>
+        </div>
+      </Listbox>
+    </li>
+    <li class="inline-block mx-2">
+      <input
+        type="text"
+        class="form-control px-2 py-3 rounded-full border border-gray-50 text-center focus:outline-none focus:ring-current"
+        placeholder="Search for something"
+      >
+    </li>
+    </ul>
+
+    <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
       <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
         <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
           <table class="min-w-full divide-y divide-gray-200">
@@ -133,7 +221,7 @@
     <div class>
       <ul class="flex justify-end object-none object-right-bottom">
         <li class>
-          <button class="bg-blue-300 p-1 border border-black">
+          <button class="bg-blue-300 p-2 border border-black font-semibold shadow-md sm:text-sm">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               class="h-3 w-3 inline-block mr-1"
@@ -151,13 +239,13 @@
           </button>
         </li>
         <li>
-          <button class="bg-blue-300 p-1 border border-black">2</button>
+          <button class="bg-blue-300 p-2 border border-black font-semibold shadow-md sm:text-sm">2</button>
         </li>
         <li>
-          <button class="bg-blue-300 p-1 border border-black">3</button>
+          <button class="bg-blue-300 p-2 border border-black font-semibold shadow-md sm:text-sm">3</button>
         </li>
         <li>
-          <button class="bg-blue-300 p-1 border border-black">
+          <button class="bg-blue-300 p-2 border border-black font-semibold shadow-md sm:text-sm">
             NEXT
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -182,6 +270,14 @@
 
 <script>
 import description from "./description.vue";
+import { ref } from "vue";
+import {
+  Listbox,
+  ListboxLabel,
+  ListboxButton,
+  ListboxOptions,
+  ListboxOption
+} from "@headlessui/vue";
 
 const people = [
   {
@@ -200,12 +296,34 @@ const people = [
 export default {
   name: "contents",
   components: {
-    description
+    description,
+    Listbox,
+    ListboxLabel,
+    ListboxButton,
+    ListboxOptions,
+    ListboxOption
   },
 
   setup() {
     return {
       people
+    };
+  },
+
+  setup() {
+    const people = [
+      { name: "All" },
+      { name: "Arlene Mccoy" },
+      { name: "Devon Webb" },
+      { name: "Tom Cook" },
+      { name: "Tanya Fox" },
+      { name: "Hellen Schmidt" }
+    ];
+    const selectedPerson = ref(people[0]);
+
+    return {
+      people,
+      selectedPerson
     };
   }
 };
