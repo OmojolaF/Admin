@@ -193,23 +193,30 @@
           </router-link>
         </ul>
         <hr class="border-gray-400 mb-5">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="h-10 w-10 sm:mx-auto"
-          viewBox="0 0 20 20"
-          fill="currentColor"
-        >
-          <path
-            fill-rule="evenodd"
-            d="M10 18a8 8 0 100-16 8 8 0 000 16zm.707-10.293a1 1 0 00-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L9.414 11H13a1 1 0 100-2H9.414l1.293-1.293z"
-            clip-rule="evenodd"
-          ></path>
-        </svg>
+        <a href="#">
+          <div
+            class="flex justify-center items-center bg-gradient-to-br from-gray-300 to-gray-400 h-14 w-14 rounded-full fill-current text-gray-300 mx-auto"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-10 w-10 text-gray-500"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm.707-10.293a1 1 0 00-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L9.414 11H13a1 1 0 100-2H9.414l1.293-1.293z"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+          </div>
+        </a>
       </div>
       <div class="col-span-10">
-        <div class="bg-white h-16 shadow-lg">
-          <div class="text-right">
-            <Menu as="div" class="relative inline-block text-left">
+        <div class="bg-white h-16 shadow-lg flex flex-wrap content-center justify-end">
+          <div class="grid grid-cols-1 divide-x divide-gray-200">
+            <div></div>
+            <Menu as="div" class="relative inline-block text-left pl-3">
               <div>
                 <MenuButton
                   class="inline-flex w-full rounded-md px-4 py-2 bg-white text-sm text-gray-400"
@@ -217,7 +224,7 @@
                   <a class="pr-3">
                     Ibukun Ajimoti
                     <img
-                      class="rounded-full h-10 w-10 inline-block ml-1"
+                      class="rounded-full h-8 w-8 inline-block ml-1"
                       src="../assets/download.jpeg"
                     >
                     <transition
@@ -329,15 +336,29 @@
           </div>
         </div>
         <div class="bg-gray-100 min-h-screen">
-          <div class="max-w-sm py-4 px-8 bg-white shadow-lg rounded-lg">
-  
-  
-    <h2 class="text-gray-800 text-2xl font-semibold">Cards</h2>
-    <hr class="my-2">
-    <p class="mt-2 text-gray-600">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae dolores deserunt ea doloremque natus error, rerum quas odio quaerat nam ex commodi hic, suscipit in a veritatis pariatur minus consequuntur!</p>
-  
-  
-</div>
+          <div class="flex justify-start">
+            <div class="max-w-sm py-4 px-8 bg-white shadow-lg rounded-lg m-2">
+              <h2 class="text-gray-600 text-2xl font-semibold">Cards</h2>
+              <hr class="my-2">
+              <p
+                class="mt-2 text-gray-400"
+              >I apologise IBK for how long this is taking tbh. But i'll get it done</p>
+            </div>
+            <div class="max-w-sm py-4 px-8 bg-white shadow-lg rounded-lg m-2">
+              <h2 class="text-gray-600 text-2xl font-semibold">Cards</h2>
+              <hr class="my-2">
+              <p
+                class="mt-2 text-gray-400"
+              >I apologise IBK for how long this is taking tbh. But i'll get it done</p>
+            </div>
+            <div class="max-w-sm py-4 px-8 bg-white shadow-lg rounded-lg m-2">
+              <h2 class="text-gray-600 text-2xl font-semibold">Cards</h2>
+              <hr class="my-2">
+              <p
+                class="mt-2 text-gray-400"
+              >I apologise IBK for how long this is taking tbh. But i'll get it done</p>
+            </div>
+          </div>
         </div>
         <footer class="py-8">
           <div

@@ -218,10 +218,10 @@
         </div>
       </div>
     </div>
-    <div class>
+    <div class="my-3 mx-2">
       <ul class="flex justify-end object-none object-right-bottom">
         <li class>
-          <button class="bg-blue-300 p-2 border border-black font-semibold shadow-md sm:text-sm">
+          <button class="px-2 py-2 border border-gray-300 font-semibold shadow-md sm:text-sm">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               class="h-3 w-3 inline-block mr-1"
@@ -239,13 +239,13 @@
           </button>
         </li>
         <li>
-          <button class="bg-blue-300 p-2 border border-black font-semibold shadow-md sm:text-sm">2</button>
+          <button class="px-4 py-2 border border-gray-300 font-semibold shadow-md sm:text-sm">2</button>
         </li>
         <li>
-          <button class="bg-blue-300 p-2 border border-black font-semibold shadow-md sm:text-sm">3</button>
+          <button class="px-4 py-2 border border-gray-300 font-semibold shadow-md sm:text-sm">3</button>
         </li>
         <li>
-          <button class="bg-blue-300 p-2 border border-black font-semibold shadow-md sm:text-sm">
+          <button class="px-2 py-2 border border-gray-300 font-semibold shadow-md sm:text-sm">
             NEXT
             <svg
               xmlns="http://www.w3.org/2000/svg"
