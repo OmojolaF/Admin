@@ -193,24 +193,22 @@
           </router-link>
         </ul>
         <hr class="border-gray-400 mb-5">
-        <a href="#">
-          <div
-            class="flex justify-center items-center bg-gradient-to-br from-gray-300 to-gray-400 h-14 w-14 rounded-full fill-current text-gray-300 mx-auto"
+        <button
+          class="mb-4 h-10 w-10 flex justify-center items-center bg-gradient-to-br from-purple-dark to-purple-shine rounded-full fill-current mx-auto"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6 text-center text-gray-200"
+            viewBox="0 0 20 20"
+            fill="currentColor"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-10 w-10 text-gray-500"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M10 18a8 8 0 100-16 8 8 0 000 16zm.707-10.293a1 1 0 00-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L9.414 11H13a1 1 0 100-2H9.414l1.293-1.293z"
-                clip-rule="evenodd"
-              ></path>
-            </svg>
-          </div>
-        </a>
+            <path
+              fill-rule="evenodd"
+              d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+              clip-rule="evenodd"
+            ></path>
+          </svg>
+        </button>
       </div>
       <div class="col-span-10">
         <div class="bg-white h-16 shadow-lg flex flex-wrap content-center justify-end">
@@ -342,21 +340,21 @@
               <hr class="my-2">
               <p
                 class="mt-2 text-gray-400"
-              >I apologise IBK for how long this is taking tbh. But i'll get it done</p>
+              >Here's the card you requested boss! You can put anything in here to be displayed on the dashboard</p>
             </div>
             <div class="max-w-sm py-4 px-8 bg-white shadow-lg rounded-lg m-2">
               <h2 class="text-gray-600 text-2xl font-semibold">Cards</h2>
               <hr class="my-2">
               <p
                 class="mt-2 text-gray-400"
-              >I apologise IBK for how long this is taking tbh. But i'll get it done</p>
+              >Here's the card you requested boss! You can put anything in here to be displayed on the dashboard</p>
             </div>
             <div class="max-w-sm py-4 px-8 bg-white shadow-lg rounded-lg m-2">
               <h2 class="text-gray-600 text-2xl font-semibold">Cards</h2>
               <hr class="my-2">
               <p
                 class="mt-2 text-gray-400"
-              >I apologise IBK for how long this is taking tbh. But i'll get it done</p>
+              >Here's the card you requested boss! You can put anything in here to be displayed on the dashboard</p>
             </div>
           </div>
         </div>

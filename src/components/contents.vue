@@ -2,12 +2,12 @@
   <div class="flex flex-col">
     <ul class="py-3 px-1 bg-white">
     <li class="inline-block mx-2">
-      <Listbox v-model="selectedPerson">
+      <Listbox v-model="selectedPersons">
         <div class="relative mt-1">
           <ListboxButton
-            class="relative py-3 font-semibold pl-3 pr-12 text-left bg-white rounded-lg shadow-md cursor-default focus:outline-none focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-white focus-visible:ring-offset-orange-300 focus-visible:ring-offset-2 focus-visible:border-indigo-500 sm:text-sm"
+            class="relative py-3 font-semibold pl-3 pr-12 text-left bg-white rounded border border-gray-200 sm:text-sm"
           >
-            <span class="block truncate">{{ selectedPerson.name }}</span>
+            <span class="block truncate">{{ selectedPersons.name }}</span>
             <span class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -36,9 +36,9 @@
             >
               <ListboxOption
                 v-slot="{ active, selected }"
-                v-for="person in people"
-                :key="person.name"
-                :value="person"
+                v-for="persons in peoples"
+                :key="persons.name"
+                :value="persons"
                 as="template"
               >
                 <li
@@ -52,7 +52,7 @@
                     selected ? 'font-medium' : 'font-normal',
                     'block truncate',
                   ]"
-                  >{{ person.name }}</span>
+                  >{{ persons.name }}</span>
                   <span
                     v-if="selected"
                     class="absolute inset-y-0 left-0 flex items-center pl-3 text-amber-600"
@@ -82,7 +82,7 @@
     <li class="inline-block mx-2">
       <input
         type="text"
-        class="form-control px-2 py-3 rounded-full border border-gray-50 text-center focus:outline-none focus:ring-current"
+        class="form-control px-2 py-3 rounded-full border border-gray-200 text-center focus:outline-none focus:ring-current"
         placeholder="Search for something"
       >
     </li>
@@ -305,13 +305,7 @@ export default {
   },
 
   setup() {
-    return {
-      people
-    };
-  },
-
-  setup() {
-    const people = [
+    const peoples = [
       { name: "All" },
       { name: "Arlene Mccoy" },
       { name: "Devon Webb" },
@@ -319,11 +313,12 @@ export default {
       { name: "Tanya Fox" },
       { name: "Hellen Schmidt" }
     ];
-    const selectedPerson = ref(people[0]);
+    const selectedPersons = ref(peoples[0]);
 
     return {
       people,
-      selectedPerson
+      peoples,
+      selectedPersons
     };
   }
 };
